@@ -2,6 +2,11 @@ package poker.cards;
 
 import java.util.ArrayList;
 
+/**
+ * Class to encapsulate a card object. Cards have a suit, rank, and shorthand for printing.
+ * 
+ * @author Hayden Cabral
+ */
 public class Card {
     private int rank;
     private Suit suit;

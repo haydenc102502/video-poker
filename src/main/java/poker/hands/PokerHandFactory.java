@@ -9,6 +9,11 @@ import java.util.stream.Collectors;
 import poker.cards.Card;
 import poker.cards.Suit;
 
+/**
+ * Factory class to create poker hand objects. Logic for evaluating a hand is contained within the factory. Creates concrete hand types based on the evaluations
+ * 
+ * @author Hayden Cabral
+ */
 public class PokerHandFactory {
     public static PokerHand createHand(List<Card> cards) {
         if (isFlush(cards)) {
@@ -51,7 +56,7 @@ public class PokerHandFactory {
     private static boolean isJacksOrBetter(List<Card> cards) {
         Map<Integer, Long> ranks = countRanks(cards);
         for(int i = 11; i < 15; i++) {
-            if(ranks.get(i) >= 2) {
+            if(ranks.keySet().contains(i) && ranks.get(i) >= 2) {
                 return true;
             }
         }
