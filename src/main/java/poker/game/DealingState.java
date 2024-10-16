@@ -11,6 +11,10 @@ public class DealingState implements GameState{
 
     @Override
     public void progressGame(PokerGame game) {
+        if(game.getScore() <= 0) {
+            System.out.println(PokerGame.RED + "Game Over!" + PokerGame.ANSI_RESET);
+            System.exit(0);
+        }
         System.out.println("Score: $" + game.getScore());
         String response = "default";
         while(!((response.equals("") || response.equalsIgnoreCase("q")))) {
