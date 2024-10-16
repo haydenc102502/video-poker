@@ -8,9 +8,17 @@ import java.util.ArrayList;
  * @author Hayden Cabral
  */
 public class Card {
+    private static final String BLACK = "\u001B[30m";
+    private static final String RED = "\u001B[31m";
+    private static final String BLUE = "\u001B[36m";
+    private static final String ORANGE = "\033[38;5;205m";
+    private static final String ANSI_RESET = "\u001B[0m"; 
+
+
     private int rank;
     private Suit suit;
     private String shorthand;
+
 
     public Card(int rank, Suit suit) {
         this.rank = rank;
@@ -35,7 +43,16 @@ public class Card {
 
     @Override
     public String toString() {
-        return this.shorthand;
+        if(this.suit.equals(Suit.SPADES)) {
+            return BLACK + this.shorthand + ANSI_RESET;
+        }
+        if(this.suit.equals(Suit.CLUBS)) {
+            return BLUE + this.shorthand + ANSI_RESET;
+        }
+        if(this.suit.equals(Suit.HEARTS)) {
+            return RED + this.shorthand + ANSI_RESET;
+        }
+        return ORANGE + this.shorthand + ANSI_RESET;
     }
 
     public static ArrayList<Card> makeShoe() {
