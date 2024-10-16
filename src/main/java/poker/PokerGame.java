@@ -20,7 +20,7 @@ public class PokerGame {
     private GameState state;
     private List<Card> hand;
     private int score;
-    private ArrayList<Card> shoe;
+    private List<Card> shoe;
     private Scanner scanner;
 
     public PokerGame(Scanner scanner) {

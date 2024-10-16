@@ -6,6 +6,6 @@ package poker.hands;
  * @author Hayden Cabral
  */
 public interface PokerHand {
-    int getHandScore();
-    String getHandName();
+    public int getHandScore();
+    public String getHandName();
 }
