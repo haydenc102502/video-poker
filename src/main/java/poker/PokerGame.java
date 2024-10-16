@@ -17,6 +17,14 @@ import poker.hands.PokerHandFactory;
  * @author Hayden Cabral
  */
 public class PokerGame {
+    public static final String BLACK = "\u001B[30m";
+    public static final String RED = "\u001B[31m";
+    public static final String BLUE = "\u001B[36m";
+    public static final String ORANGE = "\033[38;5;205m";
+    public static final String YELLOW = "\u001B[33m";
+    public static final String GREEN = "\u001B[32m";
+    public static final String ANSI_RESET = "\u001B[0m"; 
+
     private GameState state;
     private List<Card> hand;
     private int score;
@@ -50,7 +58,7 @@ public class PokerGame {
             hand.add(drawnCard);
         }
         PokerHand pHand = PokerHandFactory.createHand(this.hand);
-        System.out.println("--" + pHand.getHandName() + "--");
+        System.out.println(YELLOW + "--" + pHand.getHandName() + "--" + ANSI_RESET);
     }
 
     public void redraw(String[] cards) {
@@ -64,9 +72,9 @@ public class PokerGame {
 
     public void scoreHand() {
         PokerHand pHand = PokerHandFactory.createHand(this.hand);
-        System.out.println("--" + pHand.getHandName() + "--");
+        System.out.println(YELLOW + "--" + pHand.getHandName() + "--" + ANSI_RESET);
         this.score += pHand.getHandScore();
-        System.out.println("Win: " + pHand.getHandScore());
+        System.out.println(GREEN + "Win: " + pHand.getHandScore() + ANSI_RESET);
         System.out.println("---------------------------------------------");
         this.hand = new ArrayList<Card>();
         this.shoe = Card.makeShoe();

@@ -12,7 +12,7 @@ public class PokerMain {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         PokerGame game = new PokerGame(scanner);
-        while(game.getScore() > 0) {
+        while(game.getScore() >= 0) {
             game.progressGame();
         }
         scanner.close();
