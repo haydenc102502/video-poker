@@ -42,11 +42,15 @@ public class PokerGame {
     }
 
     public void deal() {
+        System.out.println("Dealing...");
         this.score -= 5;
+        System.out.println("Score: $" + this.getScore());
         for(int i = 0; i < 5; i++) {
             Card drawnCard = shoe.remove(0);
             hand.add(drawnCard);
         }
+        PokerHand pHand = PokerHandFactory.createHand(this.hand);
+        System.out.println("--" + pHand.getHandName() + "--");
     }
 
     public void redraw(String[] cards) {
@@ -60,10 +64,10 @@ public class PokerGame {
 
     public void scoreHand() {
         PokerHand pHand = PokerHandFactory.createHand(this.hand);
-        System.out.println(pHand.getHandName());
+        System.out.println("--" + pHand.getHandName() + "--");
         this.score += pHand.getHandScore();
         System.out.println("Win: " + pHand.getHandScore());
-
+        System.out.println("---------------------------------------------");
         this.hand = new ArrayList<Card>();
         this.shoe = Card.makeShoe();
         Collections.shuffle(shoe);

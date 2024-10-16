@@ -12,9 +12,7 @@ public class DealingState implements GameState{
     @Override
     public void progressGame(PokerGame game) {
         System.out.println("Score: $" + game.getScore());
-        System.out.println("Dealing...");
         game.deal();
-        System.out.println("Score: $" + game.getScore());
         game.setState(new RedrawState());
     }
 }
