@@ -16,24 +16,24 @@ import poker.cards.Suit;
  */
 public class PokerHandFactory {
     public static PokerHand createHand(List<Card> cards) {
-        if (isFlush(cards)) {
-            return new Flush();
-        } else if (isStraight(cards)) {
-            return new Straight();
+        if (isRoyalFlush(cards)) {
+            return new RoyalFlush();
         } else if (isStraightFlush(cards)) {
             return new StraightFlush();
-        } else if (isRoyalFlush(cards)) {
-            return new RoyalFlush();
-        } else if (isJacksOrBetter(cards)) {
-            return new JacksOrBetter();
-        } else if (isThreeOfAKind(cards)) {
-            return new ThreeOfAKind();
         } else if (isFourOfAKind(cards)) {
             return new FourOfAKind();
         } else if (isFullHouse(cards)) {
             return new FullHouse();
+        } else if (isFlush(cards)) {
+            return new Flush();
         } else if (isStraight(cards)) {
             return new Straight();
+        } else if (isThreeOfAKind(cards)) {
+            return new ThreeOfAKind();
+        } else if (isTwoPair(cards)) {
+            return new TwoPair();
+        } else if (isJacksOrBetter(cards)) {
+            return new JacksOrBetter();
         } else {
             return new Junk(); // Default to high card
         }
@@ -61,6 +61,17 @@ public class PokerHandFactory {
             }
         }
         return false;
+    }
+
+    public static boolean isTwoPair(List<Card> cards) {
+        Map<Integer, Long> ranks = countRanks(cards);
+        int pairCount = 0;
+        for(long value : ranks.values()) {
+            if(value == 2) {
+                pairCount++;
+            }
+        }
+        return pairCount == 2;
     }
 
     private static boolean isThreeOfAKind(List<Card> cards) {
