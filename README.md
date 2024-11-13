@@ -16,3 +16,15 @@ The second subsystem is the Poker Hand subsystem. Each poker hand has a differen
 
 
 [UML class.pdf](https://github.com/user-attachments/files/17388069/UML.class.pdf)
+
+## Requirements Diagram
+The requirements illustrated within this diagram correlate well with the existing subsystems noted above.
+
+Scoring hands was an important requirement for a video poker game, and ensuring that each hand was scored correctly to promote balanced gameplay. These hands are related in a composite relationship to
+Requirement 1: Hand Scoring.
+
+Requirement 2: Player Token Balance is derived from Requirement 1 due to the necessity of the hand score to update a player's token balance. Another derivation relationship is seen from Requirement 3.3: Scoring State due to the necessity of hand scoring to keep track of a player's balance. The rest of the game states are modeled in a composite relationship within Requirement 3: Game States. Requirements 2 and 3 are also related to the overarching Player Betting Requirement, which is necessary to facilitate game states or hand scores.
+
+The diagram does a good job of relating to the two subsystems described above: The Poker Hand subsystem with the factory method pattern and the Game State subsystem using the state pattern. Although the two diagrams are different, these two subsystems are still recognizable throughout them.
+
+[Requirements Diagram.pdf](https://github.com/user-attachments/files/17724920/Requirements.Diagram.pdf)
